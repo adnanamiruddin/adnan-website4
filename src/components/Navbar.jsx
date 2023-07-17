@@ -47,6 +47,28 @@ const Navbar = () => {
           </li>
         ))}
       </ul>
+
+      <div
+        onClick={handleNavClick}
+        className="cursor-pointer pr-4 z-10 text-gray-400 md:hidden"
+      >
+        {showNav ? <FaTimes size={30} /> : <FaBars size={30} />}
+      </div>
+
+      {showNav ? (
+        <ul className="flex flex-col justify-center items-center absolute top-0 left-0 text-gray-400 w-full h-screen bg-gradient-to-b from-black to-gray-800">
+          {links.map((link) => (
+            <li
+              key={link.id}
+              className="px-4 cursor-pointer capitalize py-6 text-4xl"
+            >
+              {link.display}
+            </li>
+          ))}
+        </ul>
+      ) : (
+        ""
+      )}
     </div>
   );
 };
